@@ -1,0 +1,52 @@
+# ==============================Dataset parameters
+project_name: "RDJSCC"
+dataset_name: 'KITTI' #  'Cifar10','KITTI','Cityscape'
+dataset_path: '/home/caobin/dongb/dataset'
+# KITTI: '/home/caobin/dongb/dataset'
+# Cityscape: '/home/caobin/dongb/dataset/cityscape_dataset/'
+# for KITTI it's the txt files containing the real path of the images, and for Cityscape it's the path
+# to the directory that contains leftImg8bit and rightImg8bit folders
+resize: [128, 256]
+# ==============================Model parameters
+resume: False
+model_name: "RDJSCC"
+cuda: True
+
+weight_path: './pretrained_weights/ours+balle17_MS-SSIM_lambda3e-05.pt' # weight path for loading
+
+# ==============================Training parameters
+phase: "TRAIN" # "TRAIN" or "TEST"
+metric: "MSE" # "MSE" or "MS_SSIM" or "LPIPS"
+save_log: True # False or True
+device: 'cuda:0'
+train: True
+epochs: 200
+batchsize: 8
+learning_rate: 0.0001
+use_wandb: False
+alpha: 1
+# ==============================NN parameters
+lam_h: 0.1
+enc_shape: [16, 32, 64]
+enc_N: 16 # change enc_N to achieve different compression ratio, when enc_N changed, the number of OFDM equals enc_N/2
+# ==============================OFDM symbols parameters
+P: 1  # number of packets for each transmitted image
+S: 8  # number of OFDM symbols per packet
+M: 2048 # number of subcarriers per symbol, equals H × W
+K: 16 # length of cyclic prefix, K > decay to avoid ISI
+L: 8 # length of multipath channel
+decay: 4 # decay constant for the multipath channel
+is_clip: False # whether to include clipping
+CR: 1.0 # clipping ratio
+N_pilot: 2 # number of pilot symbols for channel estimation
+pilot: 'QPSK' # type of pilots, choose from [QPSK | ZadoffChu]
+pilot_path: './Pilot_bit_2048.pt'
+# ==============================Channel parameters
+power_factor: 0.5 # if perfect sic, perform power normalization with power_factor 0.5 to guarantee total power equals 1. if commom NOMA, power_factor is 1
+# ==============================Saving weights and results parameters
+save_weights: True
+save_output_path: './outputs' # path where results and weights will be saved
+
+# ==============================Test parameters
+test_snrs: [-8, -6, -4, -2, 0, 2]
+
