@@ -29,3 +29,5 @@ Neural Distributed Image Compression Using Common Information. Available online:
 On the Integration of Self-Attention and Convolution. Available online: https://github.com/LeapLabTHU/ACmix.
 
 Deep Joint Source Channel Coding for WirelessImage Transmission with OFDM. Available online: https://github.com/mingyuyng/Deep-JSCC-for-images-with-OFDM.
+
+Predictive and Adaptive Deep Coding for Wireless Image Transmission in Semantic Communication.  Available online: https://github.com/wyzhang-ustb/Predictive-and-Adaptive-Deep-Coding-for-Wireless-Image-Transmission-in-Semantic-Communication.
